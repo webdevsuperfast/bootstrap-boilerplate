@@ -24,5 +24,6 @@
   },
   "scripts": {
     "start": "gulp"
-  }
+  },
+  "repository": "git@github.com:webdevsuperfast/gulp-boilerplate.git"
 }
