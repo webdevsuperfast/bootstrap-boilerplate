@@ -7,11 +7,11 @@
   "license": "WTFPL",
   "private": true,
   "devDependencies": {
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.6.5",
     "browser-sync": "^2.26.7",
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
-    "gulp-changed": "^4.0.1",
+    "gulp-changed": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-copy": "^4.0.1",
     "gulp-flatmap": "^1.0.2",
@@ -25,5 +25,10 @@
   "scripts": {
     "start": "gulp"
   },
-  "repository": "git@github.com:webdevsuperfast/gulp-boilerplate.git"
+  "repository": "git@github.com:webdevsuperfast/gulp-boilerplate.git",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0"
+  }
 }
