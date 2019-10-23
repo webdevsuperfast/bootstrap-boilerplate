@@ -17,8 +17,3 @@ Bootstrap Boilerplate is my personal boilerplate when building Bootstrap-enabled
 
 **Note:** 
 I suggest using package managers to install Git, NodeJS and yarn. For Windows, you can use [scoop](https://scoop.sh) or [Chocolatey](https://chocolatey.org). For Mac/Linux/WSL(Windows 10), use [Homebrew](https://brew.sh).
-
-## Features
-
-* Bootstrap 4
-* Multi-level dropdown menus using SmartMenus Bootstrap Addon
