@@ -27,17 +27,20 @@ var plugins = [
 
 var paths = {
     styles: {
-        src: '',
-        dest: ''
+        src: './assets/scss/style.scss',
+        dest: './'
     },
     scripts: {
         src: [
-            
+            './assets/js/sources/*.js',
+            './node_modules/jquery/dist/jquery.js',
+            './node_modules/popper.js/dist/umd/popper.js',
+            './node_modules/bootstrap/dist/js/bootstrap.js'
         ],
-        dest: ''
+        dest: './assets/js'
     },
     site: {
-        url: ''
+        url: 'http://bootstrap.test'
     }
 }
 
@@ -77,13 +80,13 @@ function browserSyncReload(done) {
 }
 
 function watch() {
-    gulp.watch([''], style);
+    gulp.watch(['./assets/scss/**/*'], style);
     gulp.watch(
     [
-        '*.php',
-        'assets/css/*.css',
-        'assets/js/*.js',
-        'assets/images/*.*'
+        './**/*.php',
+        './**/*.html',
+        './assets/js/**/*.js',
+        './assets/images/**/*'
     ],
     browserSyncReload);
 }
