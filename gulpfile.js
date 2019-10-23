@@ -12,7 +12,10 @@ const gulp = require('gulp'),
     autoprefixer = require('autoprefixer'),
     cssnano = require('cssnano'),
     changed = require('gulp-changed'),
-    merge = require('merge-stream');
+    merge = require('merge-stream'),
+    Fiber = require('fibers');
+
+sass.compiler = require('sass');
 
 var plugins = [
     autoprefixer,
@@ -47,7 +50,7 @@ var paths = {
 function style() {
     return gulp.src(paths.styles.src)
         .pipe(changed(paths.styles.dest))
-        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(sass({fiber: Fiber}).on('error', sass.logError))
         .pipe(concat('style.scss'))
         .pipe(postcss(plugins))
         .pipe(rename('style.css'))
