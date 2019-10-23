@@ -13,11 +13,12 @@ const gulp = require('gulp'),
     cssnano = require('cssnano'),
     changed = require('gulp-changed'),
     merge = require('merge-stream'),
-    Fiber = require('fibers');
+    Fiber = require('fibers'),
+    header = require('gulp-header');
 
 sass.compiler = require('sass');
 
-var plugins = [
+const plugins = [
     autoprefixer,
     cssnano({
         preset: ['default', {
@@ -26,9 +27,9 @@ var plugins = [
             }
         }]
     })
-]
+];
 
-var paths = {
+const paths = {
     styles: {
         src: './assets/scss/style.scss',
         dest: './'
@@ -47,12 +48,27 @@ var paths = {
     }
 }
 
+const pkg = require('./package.json');
+
+const banner = [
+    '/**',
+    '* <%= pkg.name %> - <%= pkg.description %>',
+    '* @version v<%= pkg.version %>',
+    '* @link <%= pkg.repository %>',
+    '* @license <%= pkg.license %>',
+    '*/',
+    ''
+].join('\n');
+
 function style() {
     return gulp.src(paths.styles.src)
         .pipe(changed(paths.styles.dest))
         .pipe(sass({fiber: Fiber}).on('error', sass.logError))
         .pipe(concat('style.scss'))
         .pipe(postcss(plugins))
+        .pipe(header(banner, {
+            pkg: pkg
+        }))
         .pipe(rename('style.css'))
         .pipe(gulp.dest(paths.styles.dest))
         .pipe(browserSync.reload({stream: true}))
