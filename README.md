@@ -4,6 +4,8 @@
 
 Bootstrap Boilerplate is my personal boilerplate when building Bootstrap-enabled static sites. It uses Gulp to handle tasks.
 
+For the VueJS version, go [here](https://github.com/webdevsuperfast/bootstrap-boilerplate/tree/vue).
+
 ## Building from Source
 
 1. Install Git.
