@@ -9,7 +9,7 @@ Bootstrap Vue Boilerplate is my personal boilerplate when building Bootstrap-ena
 1. Install Git.
 2. Install NodeJS.
 3. Install Yarn (**optional**).
-4. Install Gulp globally with `yarn global add gulp-cli` or `npm install -g gulp-cli`.
+4. Install Gulp globally with `yarn global add @vue/cli` or `npm install -g @vue/cli`.
 5. Download or clone repository.
 6. Run `yarn intall` or `npm install` to install dependencies through your favorite CLI program or VSCode Terminal.
 7. Run `yarn serve` or `npm serve` to compile and hot-reload files for development.
