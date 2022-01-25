@@ -1,22 +1,18 @@
 'use strict';
 
 const gulp = require('gulp'),
-    sass = require('gulp-sass'),
+    sass = require('gulp-sass')(require('sass')),
     postcss = require('gulp-postcss'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
     foreach = require('gulp-flatmap'),
     browserSync = require('browser-sync').create(),
     autoprefixer = require('autoprefixer'),
     cssnano = require('cssnano'),
     changed = require('gulp-changed'),
     merge = require('merge-stream'),
-    Fiber = require('fibers'),
     header = require('gulp-header');
-
-sass.compiler = require('sass');
 
 const plugins = [
     autoprefixer,
@@ -63,7 +59,7 @@ const banner = [
 function style() {
     return gulp.src(paths.styles.src)
         .pipe(changed(paths.styles.dest))
-        .pipe(sass({fiber: Fiber}).on('error', sass.logError))
+        .pipe(sass().on('error', sass.logError))
         .pipe(concat('style.scss'))
         .pipe(postcss(plugins))
         .pipe(header(banner, {
